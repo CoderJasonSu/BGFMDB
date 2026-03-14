@@ -149,7 +149,11 @@ void bg_cleanCache(){
                                              options:NSJSONReadingMutableContainers
                                                error:&err];
     
-    NSAssert(!err,@"json解析失败");
+//    NSAssert(!err,@"json解析失败");
+    if (err) {
+        // XMLog(@"解析失败jsonString==%@",jsonString);
+        dic = @{};
+    }
     return dic;
 }
 /**
